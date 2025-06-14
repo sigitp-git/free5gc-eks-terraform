@@ -1,0 +1,3 @@
+# Shellcheck configuration for Terraform templates
+# Ignore warnings about template variables that are substituted by Terraform
+disable=SC2154
