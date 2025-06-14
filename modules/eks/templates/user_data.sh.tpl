@@ -21,11 +21,11 @@ INTERFACES=$(lshw -class network -json | jq '.[] | select(.product=="MT2910 Fami
 # max NUMBER_VFS for Mellanox CX-7 is 127
 NUMBER_VFS=10
 
-for interface in ${INTERFACES[@]}
+for interface in $INTERFACES
 do
-    echo Updating Virtual Functions for interface: ${interface}
-    echo ifconfig ${interface} up
-    echo ${NUMBER_VFS} > /sys/class/net/${interface}/device/sriov_numvfs
+    echo Updating Virtual Functions for interface: $interface
+    echo ifconfig $interface up
+    echo $NUMBER_VFS > /sys/class/net/$interface/device/sriov_numvfs
 done
 EOF
 
